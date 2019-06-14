@@ -27,7 +27,7 @@ new Vue({
     /* If you have site in wordpress.com, use the code below */
 
     /*
-
+    
     site = "spiralsdesignstem.wordpress.com";
 
     this.posts = await fetch(

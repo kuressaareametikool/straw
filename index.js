@@ -1,14 +1,16 @@
 import Post from "./Post.js";
 import Page from "./Page.js";
 import Site from "./Site.js";
+import Portfolio from "./Portfolio.js";
 
 Vue.component("Post", Post);
 Vue.component("Page", Page);
 Vue.component("Site", Site);
+Vue.component("Portfolio", Portfolio);
 
 new Vue({
   el: "#app",
-  data: () => ({ posts: [], pages: [] }),
+  data: () => ({ posts: [], pages: [], portfolios: [] }),
   async mounted() {
     let site = "";
 
@@ -38,6 +40,10 @@ new Vue({
       `https://public-api.wordpress.com/wp/v2/sites/${ site }/pages`
     ).then(res => res.json());
 
+    this.portfolios = await fetch(
+      `https://public-api.wordpress.com/wp/v2/sites/${ site }/jetpack-portfolio`
+    ).then(res => res.json());
+
     */
 
     /* If you have site in your own machine, use the code below */
@@ -58,6 +64,6 @@ new Vue({
 
   },
   template: `
-  <Site :posts="posts" :pages="pages" />
+  <Site :posts="posts" :pages="pages" :portfolios="portfolios" />
   `
 });

@@ -16,7 +16,7 @@ new Vue({
 
     /* Use this when using you using you own public site (Zone?) */
 
-    site = "https://vilsandisse.ee/wp";
+    site = "https://uneruno.com";
 
     this.posts = await fetch(
       `https://sofetch.glitch.me/${site}/wp-json/wp/v2/posts`
